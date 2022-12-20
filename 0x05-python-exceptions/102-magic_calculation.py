@@ -1,10 +1,13 @@
 #!/usr/bin/python3
-import sys
-
-
-def safe_function(fct, *args):
-    try:
-        return fct(*args)
-    except Exception as e:
-        print("Exception: {}".format(e), file=sys.stderr)
-        return None
+def magic_calculation(a, b):
+    result = 0
+    for i in range(1, 3):
+        try:
+            if i > a:
+                raise Exception('Too far')
+            else:
+                result += (a ** b) / i
+        except Exception:
+            result = b + a
+            break
+    return (result)
